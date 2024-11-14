@@ -1,0 +1,38 @@
+Clean Architecture
+-src
+----core
+--------entities            - Core domain entities
+--------use-cases           - Application business rules (use cases)
+--------interfaces          - Interface for use cases (ports)
+----infrastructure
+--------persistence         - Database-related code (repositories, ORM models)
+--------frameworks          - External frameworks (web, messaging)
+--------configuration       - App configuration (DB connections, settings)
+----interface-adapters
+--------controllers         - Web or API controllers
+--------presenters          - Format data for presentation layer
+--------mappers             - Convert between internal and external models
+----tests
+--------unit                - Unit tests for core logic
+--------integration         - Tests for integration with adapters
+
+=============================================================================================
+Hexagonal Architecture (Ports and Adapters)
+
+-src
+---core
+------domain             - Business logic and domain models
+------service            - Core services (use cases)
+---adapters
+------inbound            - Adapters for handling external requests (controllers, APIs)
+------outbound           - Adapters for data persistence (repositories, external APIs)
+---ports
+------input              - Input ports (interfaces for use cases)
+------output             - Output ports (interfaces for data persistence)
+---config
+------database           - Database configuration and connection
+---tests
+------unit               - Unit tests for core logic
+------integration        - Integration tests for adapters
+
+=============================================================================================
